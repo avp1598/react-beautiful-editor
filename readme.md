@@ -1,6 +1,8 @@
 # React Beautiful Editor
 
-A React component that allows you to create a beautiful editor with embeds, images, links, and more.
+A React component that allows you to create a beautiful rich text editor with resizable embeds, images, links, and more.
+
+It is built on top of ![tiptap](https://tiptap.dev/) and it is an all batteries included editor.
 
 ![twitter](https://img.shields.io/twitter/follow/0xavp?style=social)
 ![size](https://img.shields.io/bundlephobia/min/@avp1598/react-beautiful-editor)
@@ -135,3 +137,24 @@ A function that will be called whenever the editor is ready to be used.
 ---
 
 Props marked with **?** are **optional**.
+
+## Working with tailwindCSS
+
+Tailwind css overrides the default heading and list styles of the editor. To fix this, you can add the following to your global css file where your tailwind directives are defined.
+
+```css
+@tailwind base;
+
+@layer base {
+  ul,
+  ol {
+    list-style: revert;
+  }
+
+  h1,
+  h2 {
+    font-size: revert;
+    font-weight: revert;
+  }
+}
+```

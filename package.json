@@ -9,6 +9,15 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/avp1598/react-beautiful-editor"
+  },
+  "homepage": "https://editor.avp1598.dev/",
+  "author": {
+    "name": "Aditya Veer Parmar",
+    "email": "nakulparmar@ymail.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "run-s build:*",
