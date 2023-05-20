@@ -17,8 +17,8 @@ import BubbleMenu from "@tiptap/extension-bubble-menu";
 type EditorProps = {
   value: string;
   onChange: (value: string) => void;
-  placeholder?: string;
   uploadImage: (file: File) => Promise<string>;
+  placeholder?: string;
   theme?: "light" | "dark";
   onReady?: () => void;
   onBlur?: () => void;
@@ -34,7 +34,7 @@ export const Editor = ({
   onBlur,
   onFocus,
   uploadImage,
-  placeholder = "Start typing and enter  for commands",
+  placeholder = "Start typing and enter / for commands",
   theme = "light",
   embedBoundsSelector = "",
   readonly = false,
