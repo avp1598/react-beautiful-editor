@@ -1,0 +1,13 @@
+:root {
+  --app-background: rgb(25, 25, 25);
+  --app-color: rgba(255, 255, 255, 0.7);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: dark;
+  color: var(--app-color);
+  background-color: var(--app-background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}

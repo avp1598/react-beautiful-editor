@@ -1,0 +1,276 @@
+.react-beautiful-editor .ProseMirror > * + * {
+  margin-top: 0.75rem;
+}
+.react-beautiful-editor .ProseMirror p {
+  margin: 0.75rem 0;
+}
+.react-beautiful-editor .ProseMirror ul,
+.react-beautiful-editor .ProseMirror ol {
+  padding: 0 1rem;
+}
+.react-beautiful-editor .ProseMirror h1,
+.react-beautiful-editor .ProseMirror h2,
+.react-beautiful-editor .ProseMirror h3,
+.react-beautiful-editor .ProseMirror h4,
+.react-beautiful-editor .ProseMirror h5,
+.react-beautiful-editor .ProseMirror h6 {
+  line-height: 1.1;
+}
+
+.react-beautiful-editor .ProseMirror a {
+  color: rgb(191, 90, 242);
+  cursor: pointer;
+}
+
+.react-beautiful-editor .ProseMirror pre {
+  background-color: #0d0d0d;
+  border-radius: 0.25em;
+  box-decoration-break: clone;
+  color: #616161;
+  font-size: 0.9rem;
+  padding: 0.25em;
+}
+
+.react-beautiful-editor .ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+.react-beautiful-editor .ProseMirror hr {
+  border: none;
+  border-top: 2px solid var(--react-beautiful-editor-divider);
+  margin: 2rem 0;
+}
+
+.react-beautiful-editor .ProseMirror-focused {
+  outline: none;
+}
+
+.react-beautiful-editor .ProseMirror p.is-empty::before {
+  color: rgb(130, 130, 130);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.react-beautiful-editor .resizable-image-node-view {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  width: 100%;
+}
+
+.react-beautiful-editor .resizable-image-node-view .container {
+  width: fit-content;
+  display: flex;
+  position: relative;
+}
+
+.react-beautiful-editor .resizable-image-node-view .justify-center {
+  justify-content: center;
+}
+
+.react-beautiful-editor .resizable-image-node-view .justify-end {
+  justify-content: flex-end;
+}
+
+.react-beautiful-editor.resizable-image-node-view .justify-start {
+  justify-content: flex-start;
+}
+
+.react-beautiful-editor .horizontal-resize-handle {
+  position: absolute;
+  top: 40%;
+  right: 0.25rem;
+  z-index: 50;
+  height: 6rem;
+  width: 0.625rem;
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  cursor: col-resize;
+  border-radius: 0.25rem;
+  background-color: #000;
+}
+
+.react-beautiful-editor .resizable-image-buttons {
+  display: flex;
+  position: absolute;
+  cursor: pointer;
+  top: 0.5rem;
+  right: 0.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(226 232 240 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color),
+    0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+.react-beautiful-editor .resizable-image-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  color: rgb(107, 114, 128);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+.react-beautiful-editor .resizable-image-buttons button:hover {
+  background-color: rgb(20, 20, 20, 0.1);
+}
+
+.react-beautiful-editor .bubble-menu-container {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid rgb(226, 232, 240); */
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px,
+    rgba(15, 15, 15, 0.2) 0px 3px 6px, rgba(15, 15, 15, 0.4) 0px 9px 24px;
+  border-radius: 0.25rem;
+  padding: 1.75px;
+  background-color: var(--react-beautiful-editor-menu-background);
+}
+
+.react-beautiful-editor .editor-bubble-menu-button {
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  color: rgb(107, 114, 128);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  border-radius: 0.25rem;
+}
+
+.react-beautiful-editor .editor-bubble-menu-button:hover {
+  color: var(--react-beautiful-editor-menu-item-text);
+}
+
+.react-beautiful-editor .bubble-menu-input {
+  width: 100%;
+  height: 1.75rem;
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  color: rgb(107, 114, 128);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+.react-beautiful-editor .ProseMirror iframe {
+  border: 0px solid #000;
+  border-radius: 10px;
+}
+
+.react-beautiful-editor ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0;
+}
+.react-beautiful-editor ul[data-type="taskList"] p {
+  margin: 0;
+}
+.react-beautiful-editor ul[data-type="taskList"] li {
+  display: flex;
+}
+.react-beautiful-editor ul[data-type="taskList"] li > label {
+  flex: 0 0 auto;
+  margin-right: 0.5rem;
+  user-select: none;
+}
+.react-beautiful-editor ul[data-type="taskList"] li > div {
+  flex: 1 1 auto;
+}
+.react-beautiful-editor li[data-checked="true"] {
+  color: var(--react-beautiful-editor-list-checked-text);
+  text-decoration: line-through;
+}
+
+.react-beautiful-editor .i-mdi-delete {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24' display='inline-block' vertical-align='middle' width='1em' height='1em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12Z'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  mask-size: 100% 100%;
+  -webkit-mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+}
+
+.react-beautiful-editor .i-mdi-format-align-center {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24' display='inline-block' vertical-align='middle' width='1em' height='1em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='M3 3h18v2H3V3m4 4h10v2H7V7m-4 4h18v2H3v-2m4 4h10v2H7v-2m-4 4h18v2H3v-2Z'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  mask-size: 100% 100%;
+  -webkit-mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+}
+
+.react-beautiful-editor .i-mdi-format-align-left {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24' display='inline-block' vertical-align='middle' width='1em' height='1em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='M3 3h18v2H3V3m0 4h12v2H3V7m0 4h18v2H3v-2m0 4h12v2H3v-2m0 4h18v2H3v-2Z'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  mask-size: 100% 100%;
+  -webkit-mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+}
+
+.react-beautiful-editor .i-mdi-format-align-right {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24' display='inline-block' vertical-align='middle' width='1em' height='1em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='M3 3h18v2H3V3m6 4h12v2H9V7m-6 4h18v2H3v-2m6 4h12v2H9v-2m-6 4h18v2H3v-2Z'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  mask-size: 100% 100%;
+  -webkit-mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  background-color: currentColor;
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+}
