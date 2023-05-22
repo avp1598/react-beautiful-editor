@@ -126,8 +126,6 @@ export const Editor = ({
                       if (!schema.nodes.resizableImage) return;
                       const node = schema.nodes.resizableImage.create({
                         src: response,
-                        "media-type":
-                          file.type.indexOf("image") === 0 ? "img" : "video",
                       });
 
                       const transaction =

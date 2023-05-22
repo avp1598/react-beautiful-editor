@@ -9,15 +9,11 @@ export const ResizableImageNodeView = ({
   node,
   updateAttributes,
   deleteNode,
+  extension,
   editor,
 }: NodeViewProps) => {
-  const [mediaType, setMediaType] = useState<"img" | "video">();
+  const src = node.attrs.src;
   const [isHover, setIsHover] = useState(false);
-
-  useEffect(() => {
-    setMediaType(node.attrs["media-type"]);
-  }, [node.attrs]);
-
   const [aspectRatio, setAspectRatio] = useState(0);
 
   const [proseMirrorContainerWidth, setProseMirrorContainerWidth] = useState(0);
@@ -54,26 +50,13 @@ export const ResizableImageNodeView = ({
     // When the media has loaded
     if (!resizableImgRef.current) return;
 
-    if (mediaType === "video") {
-      const video = resizableImgRef.current as HTMLVideoElement;
-
-      video.addEventListener("loadeddata", function () {
-        // Aspect Ratio from its original size
-        setAspectRatio(video.videoWidth / video.videoHeight);
-
-        // for the first time when video is added with custom width and height
-        // and we have to adjust the video height according to it's width
-        onHorizontalResize("left", 0);
-      });
-    } else {
-      resizableImgRef.current.onload = () => {
-        // Aspect Ratio from its original size
-        setAspectRatio(
-          (resizableImgRef.current as HTMLImageElement).naturalWidth /
-            (resizableImgRef.current as HTMLImageElement).naturalHeight
-        );
-      };
-    }
+    resizableImgRef.current.onload = () => {
+      // Aspect Ratio from its original size
+      setAspectRatio(
+        (resizableImgRef.current as HTMLImageElement).naturalWidth /
+          (resizableImgRef.current as HTMLImageElement).naturalHeight
+      );
+    };
 
     setTimeout(() => calculateMediaActionActiveStates(), 200);
   };
@@ -168,6 +151,28 @@ export const ResizableImageNodeView = ({
     });
   };
 
+  if (!src) {
+    return (
+      <NodeViewWrapper as="article">
+        <input
+          autoFocus
+          className="bubble-menu-input"
+          type="file"
+          accept="image/*"
+          onChange={(e) => {
+            const file = e.target.files?.[0];
+            if (!file) return;
+            extension.options.uploadFn(file).then((src: string) => {
+              updateAttributes({
+                src,
+              });
+            });
+          }}
+        />
+      </NodeViewWrapper>
+    );
+  }
+
   return (
     <NodeViewWrapper
       as="article"
@@ -184,15 +189,13 @@ export const ResizableImageNodeView = ({
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
       >
-        {mediaType === "img" && (
-          <img
-            src={node.attrs.src}
-            ref={resizableImgRef as any}
-            alt={node.attrs.src}
-            width={node.attrs.width}
-            height={node.attrs.height}
-          />
-        )}
+        <img
+          src={node.attrs.src}
+          ref={resizableImgRef as any}
+          alt={node.attrs.src}
+          width={node.attrs.width}
+          height={node.attrs.height}
+        />
         {editor.isEditable && (
           <div
             className={`horizontal-resize-handle`}

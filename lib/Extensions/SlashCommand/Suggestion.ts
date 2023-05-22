@@ -81,12 +81,95 @@ export default {
         },
       },
       {
+        name: "Image",
+        id: "image",
+        description: "Add an image",
+        image: "https://ik.imagekit.io/spectcdn/editor_image.png",
+        command: ({ editor, range }: CommandProps) => {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .setImage({
+              src: "",
+            })
+            .run();
+          editor.commands.insertContentAt(
+            editor.state.selection.$anchor.pos + 1,
+            "<p></p>"
+          );
+        },
+      },
+      {
         name: "Divider",
         id: "divider",
         description: "Visually divide blocks with a horizontal line",
         image: "https://ik.imagekit.io/spectcdn/editor_divider.png",
         command: ({ editor, range }: CommandProps) => {
           editor.chain().focus().deleteRange(range).setHorizontalRule().run();
+        },
+      },
+      {
+        name: "Youtube",
+        id: "youtube",
+        description: "Embed a youtube video",
+        image: "https://ik.imagekit.io/spectcdn/editor_yt.png",
+        command: ({ editor, range }: CommandProps) => {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .setEmbed({
+              src: "",
+              embedType: "youtube",
+            })
+            .run();
+          editor.commands.insertContentAt(
+            editor.state.selection.$anchor.pos + 1,
+            "<p></p>"
+          );
+        },
+      },
+      {
+        name: "Twitter",
+        id: "twitter",
+        description: "Embed a tweet",
+        image: "https://ik.imagekit.io/spectcdn/editor_twitter.png",
+        command: ({ editor, range }: CommandProps) => {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .setEmbed({
+              src: "",
+              embedType: "twitter",
+            })
+            .run();
+          editor.commands.insertContentAt(
+            editor.state.selection.$anchor.pos + 1,
+            "<p></p>"
+          );
+        },
+      },
+      {
+        name: "Figma",
+        id: "figma",
+        description: "Embed a figma file",
+        image: "https://ik.imagekit.io/spectcdn/editor_figma-icon.png",
+        command: ({ editor, range }: CommandProps) => {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .setEmbed({
+              src: "",
+              embedType: "figma",
+            })
+            .run();
+          editor.commands.insertContentAt(
+            editor.state.selection.$anchor.pos + 1,
+            "<p></p>"
+          );
         },
       },
     ]

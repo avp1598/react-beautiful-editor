@@ -9,17 +9,9 @@ export interface ResizableEmbedOptions {
 
 type SetEmbedOptions = {
   src: string;
-  embedType:
-    | "youtube"
-    | "figma"
-    | "loom"
-    | "twitter"
-    | "miro"
-    | "googleDoc"
-    | "googleSheet"
-    | "googleSlide";
-  width: string;
-  height: string;
+  embedType: "youtube" | "figma" | "twitter";
+  width?: string;
+  height?: string;
 };
 
 declare module "@tiptap/core" {

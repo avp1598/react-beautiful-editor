@@ -2,8 +2,7 @@
 
 A React component that allows you to create a beautiful rich text editor with resizable embeds, images, links, and more.
 
-It is built on top of ![tiptap](https://tiptap.dev/) and it is an all batteries included editor.
-
+It is built on top of [tiptap](https://tiptap.dev/) and it is an all batteries included editor.
 ![twitter](https://img.shields.io/twitter/follow/0xavp?style=social)
 ![size](https://img.shields.io/bundlephobia/min/@avp1598/react-beautiful-editor)
 ![npm](https://img.shields.io/npm/v/@avp1598/react-beautiful-editor)
@@ -134,9 +133,11 @@ A function that will be called whenever the editor is ready to be used.
 
 <hr />
 
----
-
 Props marked with **?** are **optional**.
+
+## Working with server side rendering (SSR)
+
+TODO
 
 ## Working with tailwindCSS
 

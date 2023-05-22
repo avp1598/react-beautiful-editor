@@ -1,6 +1,5 @@
 import { mergeAttributes, Node, nodeInputRule } from "@tiptap/core";
 import { ReactNodeViewRenderer } from "@tiptap/react";
-
 import { ResizableImageNodeView } from "./ResizableImageNodeView";
 
 declare module "@tiptap/core" {
@@ -9,8 +8,7 @@ declare module "@tiptap/core" {
       /**
        * Set media
        */
-      setMedia: (options: {
-        "media-type": "img" | "video";
+      setImage: (options: {
         src: string;
         alt?: string;
         title?: string;
@@ -21,20 +19,15 @@ declare module "@tiptap/core" {
   }
 }
 
-export interface MediaOptions {
-  // inline: boolean, // we have floating support, so block is good enough
-  // allowBase64: boolean, // we're not going to allow this
+export interface ImageOptions {
   HTMLAttributes: Record<string, any>;
   uploadFn: (file: File) => Promise<string>;
 }
 
-export const IMAGE_INPUT_REGEX =
+export const IMAGE_REGEX =
   /(?:^|\s)(!\[(.+|:?)]\((\S+)(?:(?:\s+)["'](\S+)["'])?\))$/;
 
-export const VIDEO_INPUT_REGEX =
-  /!\[(.+|:?)]\((\S+)(?:(?:\s+)["'](\S+)["'])?\)/;
-
-export const ResizableImage = Node.create<MediaOptions>({
+export const ResizableImage = Node.create<ImageOptions>({
   name: "resizableImage",
 
   addOptions() {
@@ -55,9 +48,6 @@ export const ResizableImage = Node.create<MediaOptions>({
   addAttributes() {
     return {
       src: {
-        default: null,
-      },
-      "media-type": {
         default: null,
       },
       alt: {
@@ -89,41 +79,12 @@ export const ResizableImage = Node.create<MediaOptions>({
         tag: 'img[src]:not([src^="data:"])',
         getAttrs: (el) => ({
           src: (el as HTMLImageElement).getAttribute("src"),
-          "media-type": "img",
-        }),
-      },
-      {
-        tag: "video",
-        getAttrs: (el) => ({
-          src: (el as HTMLVideoElement).getAttribute("src"),
-          "media-type": "video",
         }),
       },
     ];
   },
 
   renderHTML({ HTMLAttributes }) {
-    const { "media-type": mediaType } = HTMLAttributes;
-
-    if (mediaType === "img") {
-      return [
-        "img",
-        mergeAttributes(this.options.HTMLAttributes, HTMLAttributes),
-      ];
-    }
-    if (mediaType === "video") {
-      return [
-        "video",
-        { controls: "true", style: "width: 100%", ...HTMLAttributes },
-        ["source", HTMLAttributes],
-      ];
-    }
-
-    if (!mediaType)
-      console.error(
-        "TiptapMediaExtension-renderHTML method: Media Type not set, going default with image"
-      );
-
     return [
       "img",
       mergeAttributes(this.options.HTMLAttributes, HTMLAttributes),
@@ -132,32 +93,9 @@ export const ResizableImage = Node.create<MediaOptions>({
 
   addCommands() {
     return {
-      setMedia:
+      setImage:
         (options) =>
         ({ commands }) => {
-          const { "media-type": mediaType } = options;
-
-          if (mediaType === "img") {
-            return commands.insertContent({
-              type: this.name,
-              attrs: options,
-            });
-          }
-          if (mediaType === "video") {
-            return commands.insertContent({
-              type: this.name,
-              attrs: {
-                ...options,
-                controls: "true",
-              },
-            });
-          }
-
-          if (!mediaType)
-            console.error(
-              "TiptapMediaExtension-setMedia: Media Type not set, going default with image"
-            );
-
           return commands.insertContent({
             type: this.name,
             attrs: options,
@@ -173,7 +111,7 @@ export const ResizableImage = Node.create<MediaOptions>({
   addInputRules() {
     return [
       nodeInputRule({
-        find: IMAGE_INPUT_REGEX,
+        find: IMAGE_REGEX,
         type: this.type,
         getAttributes: (match) => {
           const [, , alt, src, title] = match;
@@ -182,19 +120,6 @@ export const ResizableImage = Node.create<MediaOptions>({
             src,
             alt,
             title,
-            "media-type": "img",
-          };
-        },
-      }),
-      nodeInputRule({
-        find: VIDEO_INPUT_REGEX,
-        type: this.type,
-        getAttributes: (match) => {
-          const [, , src] = match;
-
-          return {
-            src,
-            "media-type": "video",
           };
         },
       }),
