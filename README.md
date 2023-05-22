@@ -1,12 +1,23 @@
 # React Beautiful Editor
 
+[Live Demo](https://editor.avp1598.dev/)
+
 A React component that allows you to create a beautiful rich text editor with resizable embeds, images, links, and more.
 
 It is built on top of [tiptap](https://tiptap.dev/) and it is an all batteries included editor.
-![twitter](https://img.shields.io/twitter/follow/0xavp?style=social)
-![size](https://img.shields.io/bundlephobia/min/@avp1598/react-beautiful-editor)
-![npm](https://img.shields.io/npm/v/@avp1598/react-beautiful-editor)
-![downloads](https://img.shields.io/npm/dt/@avp1598/react-beautiful-editor)
+
+<a href="https://twitter.com/0xavp" target="_blank">
+  <img src="https://img.shields.io/twitter/follow/0xavp?style=social" alt="Twitter: 0xavp" />
+</a>
+<a href="https://www.npmjs.com/package/@avp1598/react-beautiful-editor" target="_blank">
+  <img src="https://img.shields.io/bundlephobia/min/@avp1598/react-beautiful-editor" alt="npm" />
+</a>
+<a href="https://www.npmjs.com/package/@avp1598/react-beautiful-editor" target="_blank">
+  <img src="https://img.shields.io/npm/v/@avp1598/react-beautiful-editor" alt="npm" />
+</a>
+<a href="https://www.npmjs.com/package/@avp1598/react-beautiful-editor" target="_blank">
+  <img src="https://img.shields.io/npm/dt/@avp1598/react-beautiful-editor" alt="downloads" />
+</a>
 
 ![Demo](demo.gif)
 
@@ -49,6 +60,7 @@ const Home = () => {
         theme={theme}
         uploadImage={async (file) => {
           console.log("file", file);
+          // upload the file to your server and return the url
           return "https://picsum.photos/400/600";
         }}
         placeholder="Enter description"
@@ -60,6 +72,36 @@ const Home = () => {
   );
 };
 ```
+
+## Features
+
+### Slash commands (Type `/` to see the list of commands)
+
+#### `Text`
+
+#### `Heading 1`
+
+#### `Heading 2`
+
+#### `To-do list`
+
+#### `Bulleted list`
+
+#### `Numbered list`
+
+#### `Divider`
+
+#### `Image`
+
+#### `Youtube`
+
+#### `Twitter`
+
+#### `Figma`
+
+### Resizable embeds and Images
+
+### Node marks (Bold, Italic, Underline, Strikethrough, Link)
 
 ## API (Available props)
 
@@ -137,7 +179,15 @@ Props marked with **?** are **optional**.
 
 ## Working with server side rendering (SSR)
 
-TODO
+The editor component will not work if the page is server side rendered using next.js. To get around this, dynamic import the editor component.
+
+```tsx
+import dynamic from "next/dynamic";
+
+const Editor = dynamic(() => import("@avp1598/react-beautiful-editor"), {
+  ssr: false,
+});
+```
 
 ## Working with tailwindCSS
 
