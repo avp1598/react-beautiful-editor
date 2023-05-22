@@ -19,7 +19,7 @@ It is built on top of [tiptap](https://tiptap.dev/) and it is an all batteries i
   <img src="https://img.shields.io/npm/dt/@avp1598/react-beautiful-editor" alt="downloads" />
 </a>
 
-![Demo](demo.gif)
+![Demo](demo2.gif)
 
 ## How to use
 
