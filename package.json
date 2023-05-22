@@ -18,6 +18,21 @@
     "name": "Aditya Veer Parmar",
     "email": "nakulparmar@ymail.com"
   },
+  "keywords": [
+    "react",
+    "editor",
+    "wysiwyg",
+    "tiptap",
+    "react-beautiful-editor",
+    "react-editor",
+    "react-wysiwyg",
+    "slate",
+    "editorjs",
+    "notion",
+    "notion-like",
+    "slash-commands",
+    "embeds"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "run-s build:*",

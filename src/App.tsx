@@ -13,7 +13,9 @@ function App() {
         uploadImage={() => {
           return new Promise((resolve) => {
             setTimeout(() => {
-              resolve("https://picsum.photos/400/600");
+              resolve(
+                "https://ik.imagekit.io/spectcdn/spect_VPStWGRNc.png?updatedAt=1680286554361&tr=w-1080%2Ch-1080%2Cfo-auto"
+              );
             }, 1000);
           });
         }}

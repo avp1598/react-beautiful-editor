@@ -31,7 +31,7 @@ It is built on top of [tiptap](https://tiptap.dev/) and it is an all batteries i
 
 `npm install @avp1598/react-beautiful-editor`
 
-**Import the editor**
+**Import the editor and the css**
 
 ```tsx
 import { Editor } from "@avp1598/react-beautiful-editor";
@@ -71,6 +71,11 @@ const Home = () => {
     </div>
   );
 };
+```
+
+```tsx
+// import the css
+import "@avp1598/react-beautiful-editor/dist/Editor.css";
 ```
 
 ## Features
