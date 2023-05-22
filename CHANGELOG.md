@@ -1,5 +1,11 @@
 # @avp1598/react-beautiful-editor
 
+## 0.1.1
+
+### Patch Changes
+
+- 5055e2b: readme changes and updated demo
+
 ## 0.1.0
 
 ### Minor Changes
