@@ -1,5 +1,11 @@
 # @avp1598/react-beautiful-editor
 
+## 0.0.3
+
+### Patch Changes
+
+- a024ae3: Updated docs and add links
+
 ## 0.0.2
 
 ### Patch Changes
