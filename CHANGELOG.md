@@ -1,5 +1,11 @@
 # @avp1598/react-beautiful-editor
 
+## 0.1.0
+
+### Minor Changes
+
+- 480ea68: Added embed and image commands
+
 ## 0.0.3
 
 ### Patch Changes
